@@ -1,9 +1,14 @@
-require 'sinatra'
-require 'sinatra/partial'
+require 'data_mapper'
 
-set :partial_template_engine, :erb
-set :public_folder, Proc.new { File.join(root, '.', 'public') }
+env = ENV['RACK_ENV'] || 'development'
 
-get '/' do
-  erb :index
-end
+# we're telling datamapper to use a postgres database on localhost. The name will be "bookmark_manager_test" or "bookmark_manager_development" depending on the environment
+DataMapper.setup(:default, "postgres://localhost/onnie_#{env}")
+
+require './lib/post' # this needs to be done after datamapper is initialised
+
+# After declaring your models, you should finalise them
+DataMapper.finalize
+
+# However, the database tables don't exist yet. Let's tell datamapper to create them
+DataMapper.auto_upgrade!
