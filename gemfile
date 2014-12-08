@@ -1,13 +1,12 @@
-source 'https://rubygems.org'
+source "https://www.rubygems.org/"
 
-gem 'rack'
 gem 'sinatra'
-gem 'sinatra-partial'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 
-group :development, :test do 
-  gem 'launchy'
+group :development, :test do
   gem 'rspec'
-  gem 'shotgun'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
 end

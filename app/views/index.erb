@@ -1,1 +1,15 @@
-<h1>Hello World!</h1>
+<h1>Welcome to Mum's page</h1>
+
+Current posts:
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post.body %></li>
+  <% end %>
+</ul>
+
+<section id="new-post">
+  <form action="/posts" method="post">
+    Post: <input type="text" name="body">
+    <input type="submit" value="Add Post">
+  </form>
+</section>
