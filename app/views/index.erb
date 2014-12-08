@@ -44,7 +44,7 @@
         <label class="labelform" for="name">Name:</label>
         <textarea class="form-control" rows="1" id="comment" name="name"></textarea>
         <br>
-      	<button type="submit" class="btn btn-info" value="Add Post">Add Post</button>
+      	<button type="submit" class="btn btn-info" value="Add Post" id="buttonsub">Add Post</button>
       </div>
     </form>
   </section>
@@ -52,7 +52,9 @@
 <section class="container">
     <section class="row">
         <section class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <hr>
         <% @posts.reverse.each do |post| %>
+        <section class="mini"></section>
             <section class="post-preview">
                     <h2 class="post-subtitle">
                         <%= post.body %>
@@ -75,14 +77,6 @@
         <section class="row">
             <section class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    <li>
-                        <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
                     <li>
                         <a href="http://www.facebook.com/onnie.scully">
                             <span class="fa-stack fa-lg">

@@ -5,6 +5,7 @@
  */
 
 body {
+  background-color: #fbd0ed;
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #404040;
@@ -26,6 +27,7 @@ h6 {
   font-weight: 800;
 }
 a {
+  text-decoration: none !important;
   color: #404040;
 }
 a:hover,
@@ -140,12 +142,11 @@ hr.small {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-bottom: 50px;
 }
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-  padding: 100px 0 50px;
+  padding: 100px 0 5px;
   color: white;
 }
 @media only screen and (min-width: 768px) {
@@ -190,7 +191,7 @@ hr.small {
 .intro-header .post-heading .subheading {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 24px;
-  margin: 10px 0 30px;
+  margin: 10px 0 10px;
   font-weight: 600;
 }
 .intro-header .post-heading .meta {
@@ -396,4 +397,21 @@ body {
 
 .labelform {
   text-indent: 20px;
+}
+
+#buttonsub {
+  border: solid 1px;
+  border-radius: 8px;
+}
+
+.form-control {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+}
+
+.mini {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  background-image: url('/images/rsz_mum.jpg');
 }
