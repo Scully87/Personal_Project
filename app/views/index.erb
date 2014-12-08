@@ -2,14 +2,15 @@
 
 Current posts:
 <ul>
-  <% @posts.each do |post| %>
-    <li><%= post.body %></li>
+  <% @posts.reverse.each do |post| %>
+    <li><%= post.body %><br><%= post.name %></li>
   <% end %>
 </ul>
 
 <section id="new-post">
   <form action="/posts" method="post">
     Post: <input type="text" name="body">
+    Name: <input type="text" name="name">
     <input type="submit" value="Add Post">
   </form>
 </section>
