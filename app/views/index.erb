@@ -1,106 +1,104 @@
-<!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="post.html">Sample Post</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('/images/mum.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Mum's Page</h1>
-                        <hr class="small">
-                        <span class="subheading">A simple site to post about my amazing Mum</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-
-Current posts:
-<ul>
-  <% @posts.reverse.each do |post| %>
-    <li><%= post.body %><br><%= post.name %></li>
-  <% end %>
-</ul>
-
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <section class="container-fluid">
+        <section class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </section>
+        <section class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="post.html">Sample Post</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </section>
+    </section>
+</nav>
+<header class="intro-header" style="background-image: url('/images/mum.jpg')">
+    <section class="container">
+        <section class="row">
+            <section class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <section class="site-heading">
+                    <h1>Mum's Page</h1>
+                    <hr class="small">
+                    <span class="subheading">A simple site to post about my amazing Mum</span>
+                </section>
+            </section>
+        </section>
+    </section>
+</header>
 <section id="new-post">
-  <form action="/posts" method="post">
-    Post: <input type="text" name="body">
-    Name: <input type="text" name="name">
+  <form action="/posts" method="post"><br><br>
+    Post :  <input type="text" name="body"><br><br>
+    Name : <input type="text" name="name"><br><br>
     <input type="submit" value="Add Post">
   </form>
 </section>
-
-
-
-<!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy;<a href="http://github.com/scully87">Scully87</a> 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+<section class="container">
+    <section class="row">
+        <section class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <% @posts.reverse.each do |post| %>
+            <section class="post-preview">
+                    <h2 class="post-subtitle">
+                        <%= post.body %>
+                    </h2>
+                <p class="post-meta">Posted by <%= post.name %> on  <%= post.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %></p>
+            </section>
+            <hr>
+              <% end %>
+            <ul class="pager">
+                <li class="next">
+                    <a href="#">Older Posts &rarr;</a>
+                </li>
+            </ul>
+        </section>
+    </section>
+</section>
+<hr>
+<footer>
+    <section class="container">
+        <section class="row">
+            <section class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted">Copyright &copy;<a href="http://github.com/scully87">Scully87</a> 2014</p>
+            </section>
+        </section>
+    </section>
+</footer>

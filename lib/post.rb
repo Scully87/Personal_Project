@@ -1,3 +1,6 @@
+require 'dm-timestamps'
+require 'dm-validations'
+
 class Post
 
   include DataMapper::Resource
@@ -5,5 +8,6 @@ class Post
   property :id,     Serial
   property :name, String
   property :body,  String
+  property :created_at, DateTime
 
 end
